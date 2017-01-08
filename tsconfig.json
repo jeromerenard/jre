@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",        
+    "module": "commonjs",
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitUseStrict": false,
+    "allowUnreachableCode": false,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "lib": [
+      "dom", "es2015"
+    ]
+  },
+    "files": [
+      "src/main.ts"
+  ]
+}
