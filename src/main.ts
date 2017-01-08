@@ -2,4 +2,6 @@ import * as $ from "jquery";
 import "./main.scss";
 import "../node_modules/normalize.css/normalize.css";
 
-console.log("Hello World");
+$(() => {
+    $(".side-panel").click(() => $("#root").toggleClass("shift-left"));
+});
