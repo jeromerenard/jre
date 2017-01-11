@@ -13,7 +13,7 @@ $(() => {
         }
 
         root.addClass("turning-page");
-        root.toggleClass("view-right-page");
+        root.toggleClass("view-page-2");
 
         pageTurnTimeout = window.setTimeout(() => {
             root.removeClass("turning-page");

@@ -22,7 +22,19 @@ $light-text-disabled: rgba(white, 0.12);
 
 
 $font: "Raleway";
-$side-panel-width: 64px;
+$side-panel-size: 64px;
+
+@mixin mobile {
+    @media (max-width: $sm - 1) {
+        @content;
+    }
+}
+
+@mixin not-mobile {
+    @media (min-width: $sm) {
+        @content;
+    }
+}
 
 html, body {
     width: 100%;
@@ -41,18 +53,28 @@ body {
     justify-content: flex-start;
     flex-direction: row;  
     display: flex; 
-    width: 200vw;        
+    width: 200vw;
+
+    @include mobile {
+        width: 100vw;
+        height: 200vh;
+        flex-direction: column;
+    }        
 }
 
 .turning-page {
     transition: transform $page-turn-duration $page-turn-curve;
 }
 
-.view-right-page {        
+.view-page-2 {        
     transform: translateX(-100vw);
+
+    @include mobile {
+        transform: translateY(-100vh);
+    }
 }
 
-#left-page, #right-page {   
+#page-1, #page-2 {   
     position: relative; 
     height: 100vh;
     width: 100vw;
@@ -61,56 +83,72 @@ body {
     justify-content: center;
     flex-direction: row; 
     box-sizing: border-box;
-    padding-right: $side-panel-width;
+    padding-right: $side-panel-size;
 
-    @media (max-width: $sm - 1) {
+    @include mobile {
         padding-right: 0;
+        padding-bottom: $side-panel-size;        
     }     
 }
 
-#left-page {    
+#page-1 {    
     background: $dark;
     color: $light-text;
 }
 
-#right-page {    
+#page-2 {    
     background: $light;
     color: $dark-text;
-}
 
-.side-panel {
-    width: $side-panel-width;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
+    div.spacer {
+        width: 20%;        
+    }
 
-    @media(max-width: $sm - 1) {    
-        display: none;    
+    p {
+        width: 60%;
+        text-align: justify;  
+        min-width: 350px;      
     }
 }
 
-#left-side-panel {
+#side-panel-1, #side-panel-2 {
+    width: $side-panel-size;    
+    position: absolute;
+    cursor: pointer;
+    bottom: 0;
+    width: 100%;
+    height: $side-panel-size;  
+    letter-spacing: 0.08em;  
+
+    @include not-mobile {    
+        transform: rotate(90deg) translateY(-50vw) translateX(calc(-50vh + #{$side-panel-size/2}));    
+        width: 100vh; 
+        letter-spacing: 0.12em;       
+    }
+
+    span {
+        display: inline-block;
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+        line-height: $side-panel-size;
+        //transform-origin: center center;
+        //transform: translateY(calc(50vh - 50%)) translateX(calc(-50% + #{$side-panel-size / 2})) rotate(90deg);
+        font-size: 18px;
+        font-weight: 400;          
+        user-select: none;
+    }
+}
+
+#side-panel-1 {
     background: $light;
     color: $dark-text;
 
 }
 
-#right-side-panel {
+#side-panel-2 {
     background: $dark;
     color: $light-text;
-}
-
-#more-info {
-    display: inline-block;
-    white-space: nowrap;
-    transform-origin: center center;
-    transform: translateY(calc(50vh - 50%)) translateX(calc(-50% + #{$side-panel-width / 2})) rotate(90deg);
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.12em;    
-    user-select: none;
 }
 
 #top-menu {
@@ -141,9 +179,10 @@ body {
 }
 
 #title-container > h2 {
-    font-size: calc(10px + 1.5vw);
-    margin-top: 8px;        
-    font-weight: 500;    
+    font-size: calc(10px + 1.1vw);
+    margin-top: 8px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
     color: $light-text-secondary;
 }
 
