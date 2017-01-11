@@ -116,13 +116,16 @@ body {
     position: absolute;
     cursor: pointer;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    width: 100vw;
     height: $side-panel-size;  
-    letter-spacing: 0.08em;  
+    letter-spacing: 0.08em;    
+    transform-origin: center;  
 
     @include not-mobile {    
-        transform: rotate(90deg) translateY(-50vw) translateX(calc(-50vh + #{$side-panel-size/2}));    
-        width: 100vh; 
+        //transform: rotate(90deg) translateY(-50vw) translateX(calc(-50vh + #{$side-panel-size/2}));    
+        width: 100vh;
+        transform: rotate(90deg) translateX(calc(-50vh + #{$side-panel-size/2})) translateY(calc(-100vw + 50vh + #{$side-panel-size/2}));                        
         letter-spacing: 0.12em;       
     }
 
