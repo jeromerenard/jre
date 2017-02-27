@@ -220,7 +220,8 @@ body {
 
 .media-link {
     flex: 0;
-    height: 24px;    
+    height: 24px;  
+    width: 24px;  
     opacity: 0.55;
     transition: opacity .3s $material-curve;
     cursor: pointer;
