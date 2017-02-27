@@ -24,6 +24,11 @@ $light-text-disabled: rgba(white, 0.12);
 $font: "Raleway";
 $side-panel-size: 64px;
 
+a {    
+  color: inherit;
+  text-decoration: inherit;
+}
+
 @mixin mobile {
     @media (max-width: $sm - 1) {
         @content;
@@ -129,7 +134,7 @@ body {
         letter-spacing: 0.12em;       
     }
 
-    span {
+    a {
         display: inline-block;
         white-space: nowrap;
         width: 100%;
