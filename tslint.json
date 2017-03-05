@@ -3,6 +3,13 @@
     "rules": {
         "typedef": [
             false
-        ]
+        ],
+        "member-access": [
+            false
+        ],
+        "member-ordering": [
+            false
+        ],
+        "curly": false
     }
 }

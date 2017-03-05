@@ -19,9 +19,13 @@
     </div>
 
     <div id="page-2">
-        <div class="spacer"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent suscipit augue sed elit commodo, a consectetur odio varius. Nunc condimentum, leo ac vulputate euismod, enim massa sollicitudin risus, non pellentesque velit augue non elit. Praesent sit amet suscipit orci. Proin rhoncus sodales arcu, in sodales tellus pretium nec.</p>
-        <div class="spacer"></div>
+        <class id="section-container">
+            <div class="section">${ require("./sections/about.html") }</div>        
+            <div class="section">${ require("./sections/what-i-do.html") }</div>                
+            <div class="section">${ require("./sections/studio.html") }</div>                
+            <div class="section">${ require("./sections/works.html") }</div>                
+            <div class="section">${ require("./sections/contact.html") }</div>  
+        </class>              
 
         <div id="side-panel-2" class="side-panel">
             <a href="#/">Back</a>        
@@ -36,11 +40,11 @@
         </div>      
 
         <nav id="top-menu">
-            <a>About</a>
-            <a>What I do</a>
-            <a>Studio</a>
-            <a>Works</a>
-            <a>Contact</a>                
+            <a href="#/about">About</a>
+            <a href="#/what-i-do">What I do</a>
+            <a href="#/studio">Studio</a>
+            <a href="#/works">Works</a>
+            <a href="#/contact">Contact</a>                
         </nav>
 
         <div>

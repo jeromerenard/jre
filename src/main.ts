@@ -1,15 +1,16 @@
 import * as $ from "jquery";
-import "./main.scss";
 import "../node_modules/normalize.css/normalize.css";
-import { router } from './router';
+import "./main.scss";
+import { router } from "./router";
 
 const root = $("#root");
 let onPage1 = true;
+let currentSection = 1;
 let pageSwitchTimeout: number | undefined = undefined;
 
-function switchPage() {    
+function switchPage() {
     if (pageSwitchTimeout)
-        window.clearTimeout(pageSwitchTimeout);    
+        window.clearTimeout(pageSwitchTimeout);
 
     root.addClass("turning-page");
     root.toggleClass("view-page-2");
@@ -29,12 +30,35 @@ function page2() {
     if (onPage1) switchPage();
 }
 
+function section(index: number) {
+    $("#section-container > .section").each((i, e) => {
+        if (i === index) $(e).addClass("active");
+        else $(e).removeClass("active");
+    });
+}
+
 router
-    .on("/", () => page1()) 
-    .on("/about", () => page2())   
+    .on("/", () => {
+        page1();
+    })
+    .on("/about", () => {
+        page2();
+        section(0);
+    })
+    .on("/what-i-do", () => {
+        page2();
+        section(1);
+    })
+    .on("/studio", () => {
+        page2();
+        section(2);
+    })
+    .on("/works", () => {
+        page2();
+        section(3);
+    })
+    .on("/contact", () => {
+        page2();
+        section(4);
+    })
     .listen();
-
-// $(() => {
-//     $(".side-panel").click(() => switchPage());
-// });
-

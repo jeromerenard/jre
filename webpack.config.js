@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.html/,
-        loader: 'html',
+        loader: 'html?interpolate',
         exclude: /index.html$/
       },
       {
