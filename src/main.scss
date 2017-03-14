@@ -104,16 +104,6 @@ body {
 #page-2 {    
     background: $light;
     color: $dark-text;
-
-    div.spacer {
-        width: 20%;        
-    }
-
-    p {
-        width: 60%;
-        text-align: justify;  
-        min-width: 350px;      
-    }
 }
 
 #side-panel-1, #side-panel-2 {
@@ -202,6 +192,10 @@ body {
     bottom: 0;
     margin-top: auto;
     margin-bottom: auto;
+
+    @include mobile {
+        display: none;
+    }
 }
 
 #title-container > h1 {
@@ -256,27 +250,66 @@ body {
 }
 
 #section-container {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 110px);
+    height: calc(100% - 50px);
     margin-left: 110px;    
-    margin-top: 110px;
+    margin-top: 50px;
     position: relative;
+
+    @include mobile {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .section {
     position: absolute;
-    width: 100%;
+    padding: 20px 40px 20px 20px;
     height: 100%;
-    opacity: 0;        
+    display: flex;
+    flex-direction: column;
+    z-index: -1;
     transition: opacity .5s $material-curve;
+    opacity: 0;
+    box-sizing: border-box;
 
-    &.active {
-        /* display: block; */
+    @include mobile {
+        padding: 10px;
+    }
+    &.active {        
         opacity: 1;
-    }    
+        z-index: 1;
+    }
+
+    .section-title {                
+        position: relative;        
+        height: calc(50% - 192px);
+        flex-shrink: 0; 
+        min-height: 40px;        
+        
+        @include mobile {
+            flex: none;
+            height: auto;
+        }
+
+        h2 {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            margin: 0;
+        }
+    }
+
+    .section-content {        
+        flex-grow: 3;
+        overflow-y: auto;
+
+        p {
+            text-align: justify;
+        }
+    }
 }
-
-
 
 @keyframes slide-in-kf {
     from {
@@ -297,3 +330,6 @@ body {
         transform: scaleX(1);        
     }
 }
+
+
+
