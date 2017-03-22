@@ -23,7 +23,7 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: /\.svg$/,
+        test: /(\.svg|\.png|\.jpeg|\.jpg|\.bmp)$/,
         loader: 'url-loader'        
       },
       {
