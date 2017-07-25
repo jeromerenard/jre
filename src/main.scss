@@ -275,6 +275,8 @@ body {
 
     @include mobile {
         padding: 10px;
+        background-color: #f2f2f2;
+
     }
     &.active {    
         width: 100%;    
@@ -335,10 +337,26 @@ body {
 .section-about {
     display : flex;
     flex-direction: row;
-    flex-wrap: wrap;
+
+    @include mobile {
+        display: flex;
+        flex-direction : column;
+    }
 
     .row-left {
-        flex-basis: 60%;
+        flex: 1 ;
+        margin: 20px;
+    }
+
+    .row-right {
+        flex: 1;
+        display: flex;
+         justify-content: center;
+        .img-circle {
+    border-radius: 50%;
+   
+
+        }
     }
 
 }
@@ -346,19 +364,27 @@ body {
 .section-what {
     display : flex;
     flex-direction: row;
-    flex-wrap: wrap;
+
+    @include mobile {
+        display: flex;
+        flex-direction : column;
+    }
 
     .row-left {
-        flex-basis: 30%;
-        margin: 10px;
+        flex: 1;
+        margin: 20px;
     }
     .row-center {
-        flex-basis: 30%;
-        margin: 10px;
+        flex: 1;
+        margin: 20px;
     }
     .row-right {
-        flex-basis: 30%;
-        margin: 10px;
+        flex: 1;
+        margin: 20px;
+    }
+        .row-ext {
+        flex: 1;
+        margin: 20px;
     }
 
 }
@@ -366,13 +392,26 @@ body {
 .section-studio {
     display : flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
+
+    @include mobile {
+        display: flex;
+        flex-direction : column;
+    }
 
     .row-left {
-        flex-basis: 50%;
+        flex: 1;
+        margin: 20px;
+    }
+    .row-center {
+        flex: 1;
+        margin: 20px;
     }
     .row-right {
-        flex-basis: 50%;
+        flex: 2;
+        @include mobile {
+        display: none;
+        }
     }
 
 }
@@ -380,18 +419,72 @@ body {
 .section-works {
     display : flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
+
+    @include mobile {
+        display: flex;
+        flex-direction : column;
+    }
 
     .row-left {
-        flex-basis: 20%;
+    flex: 1;
+    margin: 20px;
+    }
+    .row-center {
+    flex: 1;
+    }
+
+    .row-right {
+    flex: 3;
     }
 }
 
-.img-circle {
-    border-radius: 50%;
+.section-contact {
+    display : flex;
+    flex-direction: row;
+    //flex-wrap: wrap;
 
+    @include mobile {
+        display: flex;
+        flex-direction : column;
+    }
+
+    .row-left {
+        flex: 1;
+        margin: 20px;
+        /*margin-top: 40px;
+        margin-left: 50px;
+        margin-right: 20px;*/
+        @include mobile {
+            p, H4 {
+                text-align: center;
+            }
+        }
+    }
+    .row-right {
+        flex: 1;
+        margin: 20px;
+        /*margin-top: 40px; /*80px*/
+        /*margin-right: 50px; */
+        h4 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        a:hover {
+            color: blue;
+        }       
+    }
+
+.player-circle {
+    display: flex;
+    flex-direction: inline;
+    flex-wrap: wrap;
+    
 }
 
+}
 
 
 
