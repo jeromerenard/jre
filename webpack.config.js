@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -13,31 +14,60 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['',
-      '.webpack.js', '.web.js', '.ts', '.js']
+    extensions: ['.webpack.js', '.web.js', '.ts', '.js']
   },
   module: {
-    loaders: [
-      { 
+    rules: [
+      {
         test: /\.ts$/,
-        loader: 'ts-loader'
+        use: 'ts-loader'
       },
       {
-        test: /(\.svg|\.png|\.jpeg|\.jpg|\.bmp)$/,
-        loader: 'url-loader'        
+        test: /(\.svg|\.png|\.jpeg|\.jpg|\.bmp|\.mp3|\.wav)$/,
+        use: 'file-loader'
       },
       {
         test: /\.html/,
-        loader: 'html?interpolate',
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: [':src'],
+            interpolate: true,
+            root: '../assets'
+          }
+        },
         exclude: /index.html$/
       },
       {
-        test: /\.css$/,        
-        loader: ExtractTextPlugin.extract('style-loader', 'css?-autoprefixer!postcss-loader') 
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',            
+            {
+              loader: 'postcss-loader',
+              options: { 
+                plugins: () => [autoprefixer]
+              }
+            },
+          ]
+        })
       },
       {
-        test: /\.scss$/,        
-        loader: ExtractTextPlugin.extract('style-loader', 'css!sass?-autoprefixer!postcss-loader') 
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',            
+            {
+              loader: 'postcss-loader',
+              options: { 
+                plugins: () => [autoprefixer]
+              }
+            },
+            'sass-loader'
+          ]
+        })        
       }
     ]
   },
