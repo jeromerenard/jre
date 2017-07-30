@@ -104,6 +104,10 @@ body {
 #page-2 {    
     background: $light;
     color: $dark-text;
+
+    @include mobile {
+         background-color: #f2f2f2;
+    }
 }
 
 #side-panel-1, #side-panel-2 {
@@ -155,7 +159,7 @@ body {
     right: 0;
     left: 0;
     width: 100%;
-    font-size: 13px;
+    font-size: 14px;
     text-align: right;
     margin: 24px $side-panel-size + 32px auto auto;
 
@@ -177,6 +181,14 @@ body {
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;    
+    margin-top: 26px;    
+}
+
+#media-links-contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;    
     margin-top: 26px;    
 }
 
@@ -301,6 +313,7 @@ body {
             left: 0;
             right: 0;
             margin: 0;
+            margin-left: 20px;
         }
     }
 
@@ -339,7 +352,6 @@ body {
     flex-direction: row;
 
     @include mobile {
-        display: flex;
         flex-direction : column;
     }
 
@@ -366,7 +378,6 @@ body {
     flex-direction: row;
 
     @include mobile {
-        display: flex;
         flex-direction : column;
     }
 
@@ -395,7 +406,6 @@ body {
     //flex-wrap: wrap;
 
     @include mobile {
-        display: flex;
         flex-direction : column;
     }
 
@@ -422,20 +432,34 @@ body {
     //flex-wrap: wrap;
 
     @include mobile {
-        display: flex;
         flex-direction : column;
     }
 
     .row-left {
     flex: 1;
     margin: 20px;
-    }
-    .row-center {
-    flex: 1;
+
+    ul {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column: 3;
+
+        -webkit-column-gap: 40px;
+        -moz-column-gap: 40px;
+        column-gap: 40px;
+
+        -webkit-column-width: 10px;
+        -moz-column-width: 120px;
+        column-width: 120px;
     }
 
+    }
+    /*.row-center {
+    flex: 1;
+    }*/
+
     .row-right {
-    flex: 3;
+    flex: 1; //flex: 3 avant modif ul
     }
 }
 
@@ -445,7 +469,6 @@ body {
     //flex-wrap: wrap;
 
     @include mobile {
-        display: flex;
         flex-direction : column;
     }
 
@@ -474,8 +497,28 @@ body {
         }
         a:hover {
             color: blue;
-        }       
+        } 
+    }    
+    .row-contact-link {
+        flex: 1;
+        align-content: center;
+
+    } 
+          
+}
+
+.on-mobile {
+    @include mobile {
+        margin-bottom: 0px;
     }
+    
+}
+
+.hide-not-mobile {
+    @include not-mobile {
+        display: none;
+    }
+}
 
 .player-circle {
     display: flex;
@@ -483,9 +526,4 @@ body {
     flex-wrap: wrap;
     
 }
-
-}
-
-
-
 
