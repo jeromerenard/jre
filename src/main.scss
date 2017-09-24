@@ -167,12 +167,16 @@ body {
         margin-right: 0;
         text-align: center;
     }
-}
 
+    a:not(.active) {
+        color: lightgray;
+    }
 
-#top-menu > a:not(:last-child)::after {
-    content: "|";
-    margin: 0 12px 0 12px;
+    a:not(:last-child)::after {
+        content: "|";
+        color: $dark-text;
+        margin: 0 12px 0 12px;
+    }
 }
 
 #media-links-container {
@@ -188,7 +192,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 80%;    
+    width: 100%;    
     margin-top: 26px;    
 }
 
@@ -285,6 +289,8 @@ body {
     opacity: 0;
     box-sizing: border-box;
 
+    //background-color: #f9f9f9;
+
     @include mobile {
         padding: 10px;
         background-color: #f2f2f2;
@@ -314,6 +320,8 @@ body {
             right: 0;
             margin: 0;
             margin-left: 20px;
+            font-size: 1.8em;
+            font-weight: 400;
         }
     }
 
@@ -321,9 +329,9 @@ body {
         flex-grow: 3;
         overflow-y: auto;
 
-        p {
+        /*p {
             text-align: justify;
-        }
+        }*/
     }
 }
 
@@ -351,10 +359,6 @@ body {
     display : flex;
     flex-direction: row;
 
-    @include mobile {
-        flex-direction : column;
-    }
-
     .row-left {
         flex: 1 ;
         margin: 20px;
@@ -363,11 +367,9 @@ body {
     .row-right {
         flex: 1;
         display: flex;
-         justify-content: center;
+        justify-content: center;
         .img-circle {
-    border-radius: 50%;
-   
-
+        border-radius: 50%;
         }
     }
 
@@ -376,10 +378,6 @@ body {
 .section-what {
     display : flex;
     flex-direction: row;
-
-    @include mobile {
-        flex-direction : column;
-    }
 
     .row-left {
         flex: 1;
@@ -403,12 +401,11 @@ body {
 .section-studio {
     display : flex;
     flex-direction: row;
-    //flex-wrap: wrap;
 
-    @include mobile {
-        flex-direction : column;
+    a {
+        color: lightblue;
     }
-
+    
     .row-left {
         flex: 1;
         margin: 20px;
@@ -416,11 +413,29 @@ body {
     .row-center {
         flex: 1;
         margin: 20px;
+
+        ul {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column: 3;
+
+            -webkit-column-gap: 40px;
+            -moz-column-gap: 40px;
+            column-gap: 40px;
+
+            -webkit-column-width: 10px;
+            -moz-column-width: 120px;
+            column-width: 120px;
+        }
+
     }
     .row-right {
         flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         @include mobile {
-        display: none;
+            display: none;
         }
     }
 
@@ -429,48 +444,41 @@ body {
 .section-works {
     display : flex;
     flex-direction: row;
-    //flex-wrap: wrap;
-
-    @include mobile {
-        flex-direction : column;
-    }
 
     .row-left {
-    flex: 1;
-    margin: 20px;
+        flex: 1;
+        margin: 20px;
+        @include mobile {
+            order: 2;
+        }
 
-    ul {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column: 3;
+        ul {
+            -webkit-column-count: 3;
+            -moz-column-count: 3;
+            column: 3;
 
-        -webkit-column-gap: 40px;
-        -moz-column-gap: 40px;
-        column-gap: 40px;
+            -webkit-column-gap: 40px;
+            -moz-column-gap: 40px;
+            column-gap: 40px;
 
-        -webkit-column-width: 10px;
-        -moz-column-width: 120px;
-        column-width: 120px;
+            -webkit-column-width: 10px;
+            -moz-column-width: 120px;
+            column-width: 120px;
+        }
     }
-
-    }
-    /*.row-center {
-    flex: 1;
-    }*/
 
     .row-right {
-    flex: 1; //flex: 3 avant modif ul
+    flex: 1;
+    @include mobile {
+        order: 1;
+    }
+    
     }
 }
 
 .section-contact {
     display : flex;
     flex-direction: row;
-    //flex-wrap: wrap;
-
-    @include mobile {
-        flex-direction : column;
-    }
 
     .row-left {
         flex: 1;
@@ -511,19 +519,17 @@ body {
     @include mobile {
         margin-bottom: 0px;
     }
-    
+}
+
+.section-mobile {
+    @include mobile {
+        flex-direction : column;
+    }
 }
 
 .hide-not-mobile {
     @include not-mobile {
         display: none;
     }
-}
-
-.player-circle {
-    display: flex;
-    flex-direction: inline;
-    flex-wrap: wrap;
-    
 }
 
