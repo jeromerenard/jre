@@ -367,9 +367,12 @@ body {
     .row-right {
         flex: 1;
         display: flex;
+        align-self: center;
         justify-content: center;
         .img-circle {
         border-radius: 50%;
+        max-width: 100%;
+        height : auto;
         }
     }
 
@@ -407,7 +410,7 @@ body {
     }
     
     .row-left {
-        flex: 1;
+        flex: 2;
         margin: 20px;
     }
     .row-center {
