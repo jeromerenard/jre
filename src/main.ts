@@ -1,6 +1,7 @@
 import * as $ from "jquery";
 import "../node_modules/normalize.css/normalize.css";
 import "./main.scss";
+import "./player.js";
 import { router } from "./router";
 
 const root = $("#root");
@@ -66,5 +67,9 @@ router
     .on("/contact", () => {
         page2();
         section(4);
+    })
+    .on("/project", () => { // Add test
+        page2();
+        section(5);
     })
     .listen();

@@ -1,11 +1,11 @@
 <div class="section-title">
-    <h2>Works</h2>
+    <h1>Works</h1>
 </div>
 
 <div class="section-content">
     <div class="section-works section-mobile">
-        <div class="row-left">
-            <h4>I've worked with</h4>
+        <div class="on-mobile row-left">
+            <h3>I've worked with</h3>
             <ul>
                 <li>Simon Phillips</li>
                 <li>John Metcalfe</li>
@@ -40,18 +40,65 @@
             </ul>
         </div>
 
-        <div class="row-right">
+        <div class="on-mobile row-right">
 
-            <audio controls>
+                <canvas id="progress" width="400px" height="400px"></canvas>
+
+                <audio id="audio">
+                    <source src="/audio1.mp3">
+                </audio>
+
+                <br>
+                <span id="current-time"></span> /
+                <span id="duration"></span>
+                <br>
+                <button id="audioControl" >Play</button>
+
+                <script>
+                    
+                </script>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--<audio id="audioPlayer" > <!--  <audio id="audioPlayer" ontimeupdate="update(this)">
+                    <source src="/audio1.mp3">
+            </audio>
+                
+            <button id="playButton" class="control">Play</button>
+            <button id="stopButton" class="control">Stop</button>
+
+            <div>
+                <div id="progressBarControl">
+                    <div id="progressBar" width="250px" height="20px" color="blue" onclick="clickProgress('audioPlayer', this, event)">Pas de lecture</div>
+                </div>
+                <span id="progressTime">00:00</span>
+                <span id="totalTime">00:00</span>
+            </div>
+
+
+            <canvas id="canvas_player" width="500" height="100" style="border:1px solid #000000;"></canvas>-->
+
+        
+            <!--<audio controls id="play">
                 <source src="/audio1.mp3">
             </audio>
 
-            <canvas id="player" width="200" height="100" style="border:1px solid #000000;">
+           <canvas id="player" width="500" height="500" style="border:1px solid #000000;"></canvas>-->
 
-            </canvas>
+           <!--<canvas class="visualizer" id="myCanvas";width="640" height="300" style="border:1px solid #000000;"> </canvas>-->
 
-
-            
+           <!--<iframe width="80%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/310650781%3Fsecret_token%3Ds-T9aRv&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>-->
         </div>
     </div>
 </div>
