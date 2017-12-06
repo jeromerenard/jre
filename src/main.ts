@@ -68,8 +68,8 @@ router
         page2();
         section(4);
     })
-    .on("/project", () => { // Add test
+    /*.on("/project", () => { // Add test
         page2();
         section(5);
-    })
+    })*/
     .listen();

@@ -41,7 +41,7 @@
         </div>
 
         <div class="on-mobile row-right">
-
+            <!-- WORKING AUDIO PLAYER 
                 <canvas id="progress" width="400px" height="400px"></canvas>
 
                 <audio id="audio">
@@ -53,21 +53,44 @@
                 <span id="duration"></span>
                 <br>
                 <button id="audioControl" >Play</button>
+            -->
 
-                <script>
-                    
-                </script>
-            
+            <div id="player">
+                <div id="main">
+                    <div>
+                        <div class="playback-controls">
+                            <h2 id="Title">Title</h2>
+                            <h3 id="Artist">Artist</h3>
+                            <div class="time-holder">
+                                <div class="slider">
+                                    <div class="fill"></div>
+                                </div>
+                            </div>
+                            <img class="player-button" src="/playlist.svg">
+                            <div id="player-controls" class="">
+                                <img class="player-button" src="/back.svg">
+                                <img class="player-button" src="/play.svg">
+                                <!--<img class="player-button" src="/pause.svg" >-->
+                                <img class="player-button" src="/next.svg">
+                            </div>
+                        </div>
+                        <audio id="playbar" controls="" tabindex="0">
+                            <source src="/audio1.mp3">
+                        </audio>
+                    </div>
+                </div>
+                <ol id="playlist">
+                    <li class="active">
+                        <source src="/audio1.mp3">
+                        <span>Test 1</span>
+                    </li>
+                    <li>
+                        <source src="/audio1.mp3">
+                        <span>Test 2</span>
+                    </li>
 
-
-
-
-
-
-
-
-
-
+                </ol>
+            </div>
 
 
 
@@ -89,16 +112,16 @@
 
             <canvas id="canvas_player" width="500" height="100" style="border:1px solid #000000;"></canvas>-->
 
-        
+
             <!--<audio controls id="play">
                 <source src="/audio1.mp3">
             </audio>
 
            <canvas id="player" width="500" height="500" style="border:1px solid #000000;"></canvas>-->
 
-           <!--<canvas class="visualizer" id="myCanvas";width="640" height="300" style="border:1px solid #000000;"> </canvas>-->
+            <!--<canvas class="visualizer" id="myCanvas";width="640" height="300" style="border:1px solid #000000;"> </canvas>-->
 
-           <!--<iframe width="80%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/310650781%3Fsecret_token%3Ds-T9aRv&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>-->
+            <!--<iframe width="80%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/310650781%3Fsecret_token%3Ds-T9aRv&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>-->
         </div>
     </div>
 </div>
