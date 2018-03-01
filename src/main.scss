@@ -114,8 +114,10 @@ body {
     width: $side-panel-size;    
     position: absolute;
     cursor: pointer;
+    top: auto;
     bottom: 0;
     left: 0;
+    right: 0;
     width: 100vw;
     height: $side-panel-size;  
     letter-spacing: 0.08em;    
