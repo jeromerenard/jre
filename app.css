@@ -88,8 +88,10 @@ body {
   width: 64px;
   position: absolute;
   cursor: pointer;
+  top: auto;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100vw;
   height: 64px;
   letter-spacing: 0.08em;
