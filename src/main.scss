@@ -24,6 +24,10 @@ $light-text-disabled: rgba(white, 0.12);
 $font: "Raleway";
 $side-panel-size: 64px;
 
+#title-container {
+    height: 100vh-64px;
+}
+
 a {    
   color: inherit;
   text-decoration: inherit;
