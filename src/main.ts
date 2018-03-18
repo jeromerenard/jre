@@ -12,6 +12,19 @@ let pageSwitchTimeout: number | undefined = undefined;
 
 inobounce.enable();
 
+$('#burger').click(function() {
+  $(this).toggleClass('active');
+  $('#top-menu').toggleClass('active');
+});
+
+$('#top-menu > a').click(function(e) {
+  const topMenu = $('#top-menu');
+
+  if ($('#top-menu').hasClass('active')) {
+    topMenu.removeClass('active');
+  }
+});
+
 function switchPage() {
     if (pageSwitchTimeout)
         window.clearTimeout(pageSwitchTimeout);
