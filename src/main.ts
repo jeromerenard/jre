@@ -10,7 +10,7 @@ let onPage1 = true;
 let currentSection = 1;
 let pageSwitchTimeout: number | undefined = undefined;
 
-inobounce.enable();
+//inobounce.enable();
 
 $('#burger').click(function() {
   $(this).toggleClass('active');

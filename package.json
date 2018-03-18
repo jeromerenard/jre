@@ -31,7 +31,6 @@
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
-    "inobounce": "^0.1.5",
     "jquery": "^3.1.1",
     "normalize.css": "^7.0.0"
   }
