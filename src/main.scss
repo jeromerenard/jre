@@ -24,9 +24,7 @@ $light-text-disabled: rgba(white, 0.12);
 $font: "Raleway";
 $side-panel-size: 64px;
 
-#title-container {
-    height: 100vh-64px;
-}
+
 
 a {    
   color: inherit;
@@ -62,11 +60,12 @@ body {
     justify-content: flex-start;
     flex-direction: row;  
     display: flex; 
-    width: 200vw;
+    width: 200%;
+    height: 100%;
 
     @include mobile {
-        width: 100vw;
-        height: 200vh;
+        width: 100%;
+        height: 200%;
         flex-direction: column;
     }        
 }
@@ -76,17 +75,17 @@ body {
 }
 
 .view-page-2 {        
-    transform: translateX(-100vw);
+    transform: translateX(-50%);
 
     @include mobile {
-        transform: translateY(-100vh);
+        transform: translateY(-50%);
     }
 }
 
 #page-1, #page-2 {   
     position: relative; 
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
