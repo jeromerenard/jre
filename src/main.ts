@@ -2,12 +2,15 @@ import * as $ from "jquery";
 import "../node_modules/normalize.css/normalize.css";
 import "./main.scss";
 import "./player.js";
+import * as inobounce from "inobounce";
 import { router } from "./router";
 
 const root = $("#root");
 let onPage1 = true;
 let currentSection = 1;
 let pageSwitchTimeout: number | undefined = undefined;
+
+inobounce.enable();
 
 function switchPage() {
     if (pageSwitchTimeout)
