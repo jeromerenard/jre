@@ -184,6 +184,7 @@ body {
     #top-menu {
       margin-right: 0;
       text-align: center;
+      pointer-events: none;
       opacity: 0;
       background: black;
       text-align: left;
@@ -193,7 +194,8 @@ body {
       margin: 0;
       transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
       #top-menu.active {
-        opacity: 1; }
+        opacity: 1;
+        pointer-events: auto; }
       #top-menu > a {
         color: lightgray;
         display: block;
