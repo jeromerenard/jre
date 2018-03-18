@@ -19,9 +19,14 @@ $('#burger').click(function() {
 
 $('#top-menu > a').click(function(e) {
   const topMenu = $('#top-menu');
+  const burger = $('#burger');
 
-  if ($('#top-menu').hasClass('active')) {
+  if (topMenu.hasClass('active')) {
     topMenu.removeClass('active');
+  }
+
+  if (burger.hasClass('active')) {
+    burger.removeClass('active');
   }
 });
 
