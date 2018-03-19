@@ -91,7 +91,7 @@ body {
 
 #burger {
   position: absolute;
-  top: 40px;
+  top: 30px;
   right: 20px;
   width: 20px;
   height: 15px;
@@ -339,7 +339,8 @@ body {
     #section-container {
       width: 100%;
       margin-left: 0;
-      margin-top: 0; } }
+      margin-top: 15px;
+      height: calc(100% - 15px); } }
 
 .section {
   position: absolute;
