@@ -650,7 +650,7 @@ body {
         font-size: 12px;
     }
 }
-
+/* PLAYER 
 #player-controls {
     display: flex;
     flex-direction: row;
@@ -680,3 +680,52 @@ body {
     box-shadow: 0 10px 20px rgba(black, 0.6);
     background-image: none;
 }
+*/
+
+/* AmplitudeJs SCSS */
+/*
+#amplitude-player {
+    background: #ffffff;
+    box-shadow: 0 2px 12px 8px #f2f2f2;
+    height: 80%;
+    width: 90%;
+}
+
+#time-container {
+    color: #607D8B;
+	font-size: 14px;
+	font-weight: 700;
+	float: left;
+	width: 15%;
+    text-align: center;
+
+}
+
+.playlist {
+    max-height: 100%;
+    padding: 0px;
+    overflow-y: scroll;
+    width: 50%;
+
+}
+
+.song-title {
+	color: #272726;
+	font-size: 16px;
+	display: block;
+	font-weight: 300;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.song-artist {
+	color: #607D8B;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}*/

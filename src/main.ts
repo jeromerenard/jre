@@ -1,8 +1,10 @@
 import * as $ from "jquery";
 import "../node_modules/normalize.css/normalize.css";
+import "../node_modules/amplitudejs/dist/amplitude.js"; 
 import "./main.scss";
 import "./player.js";
-import * as inobounce from "inobounce";
+//import * as inobounce from "inobounce";
+import * as amplitude from "amplitudejs";
 import { router } from "./router";
 
 const root = $("#root");
@@ -65,6 +67,32 @@ function section(index: number) {
 
 }
 
+amplitude.init({
+    "songs": [
+        {
+            "name": "Song Name 1",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "/song/url.mp3",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "Song Name 2",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "/song/url.mp3",
+            "cover_art_url": "/cover/art/url.jpg"
+        },
+        {
+            "name": "Song Name 3",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "/song/url.mp3",
+            "cover_art_url": "/cover/art/url.jpg"
+        }
+    ]
+});
+
 router
     .on("/", () => {
         page1();
@@ -94,3 +122,8 @@ router
         section(5);
     })*/
     .listen();
+
+
+
+
+    
