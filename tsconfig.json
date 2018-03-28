@@ -8,6 +8,7 @@
     "allowUnreachableCode": false,
     "forceConsistentCasingInFileNames": true,
     "strictNullChecks": true,
+    "allowJs": true,
     "lib": [
       "dom", "es2015"
     ]

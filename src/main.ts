@@ -1,11 +1,15 @@
 import * as $ from "jquery";
 import "../node_modules/normalize.css/normalize.css";
-import "../node_modules/amplitudejs/dist/amplitude.js"; 
+import "amplitudejs";
+//import { registerSimpleAudioPlayer } from "./simple-audio-player.js";
+//import "./simple-audio-player.css";
 import "./main.scss";
 import "./player.js";
-//import * as inobounce from "inobounce";
 import * as amplitude from "amplitudejs";
 import { router } from "./router";
+import "./siriwave.js";
+
+
 
 const root = $("#root");
 let onPage1 = true;
@@ -66,7 +70,7 @@ function section(index: number) {
     })
 
 }
-
+/*
 amplitude.init({
     "songs": [
         {
@@ -91,7 +95,7 @@ amplitude.init({
             "cover_art_url": "/cover/art/url.jpg"
         }
     ]
-});
+});*/
 
 router
     .on("/", () => {

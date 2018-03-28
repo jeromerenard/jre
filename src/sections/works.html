@@ -41,7 +41,62 @@
         </div>
 
         <div class="on-mobile row-right">
-            <!-- WORKING AUDIO PLAYER 
+                
+            <audio id="myAudioPlayer" src="../assets/audio1.mp3" ></audio> <!--ontimeupdate="update(this)"-->
+
+            <div class="audioPlayer">
+                <div class="playerTop">
+                    <div class="progressBar">
+                        <div id="Bar" class="bar"></div>
+                    </div>
+
+                    <div class="trackInfo">
+                        <span id="progressTime" class="progressTime">00:00</span>
+                        <span id="trackName" class="title">Name</span>
+                        <span id="totalTime" class="duration">00:00</span>
+                    </div>
+                
+                    <!--<div id="visuA" class="visu" >
+                        <canvas id="playerCanvas" class="canvas" style="border:1px solid #000000;"></canvas> 
+                    </div>-->
+
+                    <div id="siri-container" class="visu" >
+                        
+                    </div>
+
+                    <div class="controls">
+                        <img id="plltButton" class="playlist" src="../assets/playlist.svg" height="28" width="28">
+                        <img id="prevButton" class="backW" src="../assets/aprev.svg" height="28" width="28">
+                        <img id="playButton" class="play-pause" src="../assets/aplay.svg" height="28" width="28">
+                        <img id="nextButton" class="forW" src="../assets/anext.svg" height="28" width="28">
+                        <img id="stopButton" class="stop">
+                    </div>
+                </div>
+
+                <div class="playerBottom">
+                    <ul id="playlist" >
+                        <li class="active">
+                            <a href="">Audio 01</a>
+                        </li>
+                        <li>
+                             <a href="">Audio 02</a>
+                        </li>
+                        <li>
+                            <a href="">Audio 03</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+         <!-- WORKING AUDIO PLAYER 
                 <canvas id="progress" width="400px" height="400px"></canvas>
 
                 <audio id="audio">
@@ -93,8 +148,6 @@
                 </ol>
             </div>
             -->
-
-
 
             <!--<audio id="audioPlayer" > <!--  <audio id="audioPlayer" ontimeupdate="update(this)">
                     <source src="/audio1.mp3">
@@ -168,10 +221,5 @@
                 </div>
             -->
             
-
-       
-
-
-        </div>
-    </div>
-</div>
+            <!--<audio controls id="myPlayer" src="../assets/audio1.mp3" data-title="The Beatles - Blackbird"></audio> SIMPLEAUDIOPLAYER-->
+      

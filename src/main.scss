@@ -632,7 +632,8 @@ body {
         display: none;
     }
 }
-
+/*
+// A CHECK // 
 #main {
     height: 80%; //width: 50%;
     position: relative;
@@ -650,6 +651,122 @@ body {
         font-size: 12px;
     }
 }
+*/
+
+
+/* -- PLAYER -- */
+.audioPlayer {
+    width: 80%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    //background: #ffffff;
+    box-shadow: 0 2px 12px 8px #f2f2f2;
+    //border-style: solid;
+    //border-width: 1px;
+    border-radius: 10px;
+
+    .playerTop {
+        display:flex;
+        flex-direction: column;
+
+        .progressBar {
+            width: 100%;
+            height: 8px;
+            background-color: grey;
+            border-radius: 10px;
+            .bar {
+                width: 0%;
+                height: 8px;
+                background-color: green;
+                border-radius: 10px;
+            }
+        }
+
+        .visu {
+           display: flex;
+           height: 30%;
+           .canvas {
+               width:100%
+           }
+            
+        }
+
+        .trackInfo {
+            display: flex;
+            width: 100%;
+            //min-height: 5%;
+            flex-flow: row nowrap;
+            //flex-direction: row;
+            //flex-wrap: nowrap;
+            justify-content: space-around;
+            //flex: 1 100%;
+            margin-top: 1%;
+        
+            .progressTime {
+                //width: 15%;
+                flex: 1 10%;
+                text-align: right;
+            }
+            .title {
+                //width: 70%;
+                flex: 2 60%;
+                text-align: center;
+            }
+            .duration {
+                //width: 15%;
+                flex: 1 10%;
+                text-align: left;
+            }
+        }
+
+        .controls {
+            display: flex;
+            width: 100%;
+            height: 40%;
+            //flex-direction: row;
+            justify-content: space-around;
+            //align-items: center;
+        
+        }
+    }
+
+    .playerBottom {
+        flex-direction: column;
+
+        #playlist {
+            .active a{
+                color: #5DB0E6;
+                text-decoration: none;
+            }
+            .li a{
+                color: #eeeedd;
+                display: block;
+            }
+            .li a:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* PLAYER 
 #player-controls {
     display: flex;

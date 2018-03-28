@@ -87,6 +87,10 @@ function convertElapsedTime(inputSeconds) {
   return minutes + ":" + seconds
 }
 
+
+
+
+
 /// TEST WEB AUDIO ///
 var contexteAudio = new (window.AudioContext || window.webkitAudioContext)();
 var analyseur = contexteAudio.createAnalyser();
