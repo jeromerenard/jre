@@ -203,7 +203,7 @@ body {
         font-size: 19px; } }
   @media (min-width: 960px) {
     #top-menu a:not(.active) {
-      color: rgba(0, 0, 0, 0.54); }
+      color: rgba(0, 0, 0, 0.45); }
     #top-menu a:not(:last-child)::after {
       content: "|";
       color: rgba(0, 0, 0, 0.87);
