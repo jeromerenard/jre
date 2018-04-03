@@ -1,88 +1,105 @@
-//var audioCanvas = document.getElementById("playerCanvas");
-//var ctxAudio = audioCanvas.getContext('2d');
+import * as $ from "jquery";
+
 var prog = document.getElementById("Bar");
 
 var contextAudio = new AudioContext();
 var analyser = contextAudio.createAnalyser();
 
-var player = document.querySelector('audio');
+var player = document.querySelector('#myAudioPlayer');
+
+//Update Timer
+player.ontimeupdate = updateTimecode;
+player.ondurationchange = updateTimecode;
+
 var source = contextAudio.createMediaElementSource(player);
 
 var plist = document.getElementById("playlist")
 
-var play = document.getElementById("playButton");
-var stop = document.getElementById("stopButton");
-var prev = document.getElementById("prevButton");
-var next = document.getElementById("nextButton");
-var pllt = document.getElementById("plltButton");
+var playButton = document.getElementById("playButton");
+var stopButton = document.getElementById("stopButton");
+var prevButton = document.getElementById("prevButton");
+var nextButton = document.getElementById("nextButton");
+var plltButton = document.getElementById("plltButton");
+//var track = document.getElementById("trackName");
 
-//var WIDTH  = audioCanvas.width;
-//var HEIGHT = audioCanvas.height;
+playButton.onclick = togglePlayPause;
 
-//Play Button
-play.onclick = function () {
-    if (player.paused) {
-        player.play();
-        play.textContent = 'Pause';
-        togglePlayPause();
-       
-    } else {
-        player.pause();
-        play.textContent = 'Play';
-        togglePlayPause();
-    }
+function play() {
+    player.play();
+    playButton.textContent = 'pause';
 }
-//Stop Button
-stop.onclick = function resume(idPlayer){
-    player.currentTime = 0;
+
+function pause() {
     player.pause();
-    togglePlayPause();
+    playButton.textContent = 'play_arrow';
+}
+
+function updateTimecode() {
+    var duration = player.duration;
+    var time = player.currentTime;    
+    var fraction = time / duration;
+    var percent = fraction * 100;
+
+    prog.style.width = percent + '%';
+    console.log(percent + '%'); //CONSOLE LOG
+
+    document.querySelector('#progressTime').textContent = formatTime(time);
+    document.querySelector('#totalTime').textContent = formatTime(duration);
+}
+
+function togglePlayPause() {
+    if (player.paused) play();
+    else pause();
+}
+
+//Stop Button
+stopButton.onclick = function resume(idPlayer) {
+    player.currentTime = 0;
+    pause();
+    playButton.textContent = 'play_arrow';
 }
 //Playlist Button
+$('#plltButton').click(function() {
+    $('#playerOverlay').toggleClass('active');
+});
+/*
+$('#playlist > li > a').click(e function() {
+    onTrackItemClick(e.target, true));
+}*/
+$('#playlist > li > a').click(function(e) { onTrackItemClick(e.target, true); });
 
-//Playlist Selet Click
-function playlistClick(clickedElement) {
-    var selected = playlist.querySelector(".active");
-    if (selected) {
-        selected.classList.remove("active");
-    }
-    clickedElement.classList.add("active");
+function onTrackItemClick(element, autoPlay) {
+    const selected = $(element);
+    const fileName = selected.attr('src');
+    const trackName = selected.html();
 
-    player.src = clickedElement.getAttribute("href");
-    player.play;
+    player.src = fileName;
+    if (autoPlay) play();
+    else player.load();            
+
+    $('#trackName').html(trackName);
+    $('#playerOverlay').removeClass('active');
+    $('#playlist > li > a').removeClass('active');
+    selected.addClass('active');
 }
+
+onTrackItemClick($('#playlist > li > a:first'), false);
 //Prev Button
 
 //Next Button
-next.onclick = function () {
+nextButton.onclick = function () {
     var selected = playlist.querySelector("li.active");
     if (selected && selected.nextSibling) {
         playlistClick(selected.nextSibling);
     }
 }
 
-//Update Timer
-player.ontimeupdate = function update () {
-
-    var duration = player.duration;
-    var time     = player.currentTime;
-    var fraction = time / duration;
-    var percent  = Math.ceil(fraction * 100);
-
-    prog.style.width = percent + '%';
-    console.log(percent+'%'); //CONSOLE LOG
-
-    document.querySelector('#progressTime').textContent = formatTime(time);
-    document.querySelector('#totalTime').textContent = formatTime(duration);
-
-}
-
 //Temps écoulé
 function formatTime(time) {
     var hours = Math.floor(time / 3600);
-    var mins  = Math.floor((time % 3600) / 60);
-    var secs  = Math.floor(time % 60);
-	
+    var mins = Math.floor((time % 3600) / 60);
+    var secs = Math.floor(time % 60);
+
     if (secs < 10) {
         secs = "0" + secs;
     }
@@ -97,68 +114,40 @@ function formatTime(time) {
     }
 }
 
+function SiriWaveCurve(t) { this.controller = t.controller, this.definition = t.definition } function SiriWave(t) { t = t || {}, this.phase = 0, this.run = !1, this.cache = {}, this.container = t.container, this.width = window.getComputedStyle(this.container).width.replace("px", ""), this.height = window.getComputedStyle(this.container).height.replace("px", ""), this.ratio = window.devicePixelRatio || 1, this.cache.width = this.ratio * this.width, this.cache.height = this.ratio * this.height, this.cache.height2 = this.cache.height / 2, this.cache.width2 = this.cache.width / 2, this.cache.width4 = this.cache.width / 4, this.cache.heightMax = this.cache.height2 - 4, this.amplitude = t.amplitude, this.speed = .05, this.frequency = 5, this.color = [26, 161, 178], this.speedInterpolationSpeed = .005, this.amplitudeInterpolationSpeed = .05, this.cache.interpolation = { speed: this.speed, amplitude: this.amplitude }, this.canvas = document.createElement("canvas"), this.ctx = this.canvas.getContext("2d"), this.canvas.width = this.cache.width, this.canvas.height = this.cache.height, this.canvas.style.width = this.canvas.style.height = "100%", this.curves = []; for (var i = 0; i < SiriWaveCurve.prototype.definition.length; i++)this.curves.push(new SiriWaveCurve({ controller: this, definition: SiriWaveCurve.prototype.definition[i] })); this.container.appendChild(this.canvas), this.start() } SiriWaveCurve.prototype._globAttenuationEquation = function (t) { return null == SiriWaveCurve.prototype._globAttenuationEquation.cache[t] && (SiriWaveCurve.prototype._globAttenuationEquation.cache[t] = Math.pow(4 / (4 + Math.pow(t, 4)), 4)), SiriWaveCurve.prototype._globAttenuationEquation.cache[t] }, SiriWaveCurve.prototype._globAttenuationEquation.cache = {}, SiriWaveCurve.prototype._xpos = function (t) { return this.controller.cache.width2 + t * this.controller.cache.width4 }, SiriWaveCurve.prototype._ypos = function (t) { var i = this.controller.cache.heightMax * this.controller.amplitude / this.definition.attenuation; return this.controller.cache.height2 + this._globAttenuationEquation(t) * i * Math.sin(this.controller.frequency * t - this.controller.phase) }, SiriWaveCurve.prototype.draw = function () { var t = this.controller.ctx; t.moveTo(0, 0), t.beginPath(), t.strokeStyle = "rgba(" + this.controller.color + "," + this.definition.opacity + ")", t.lineWidth = this.definition.lineWidth; for (var i = -2; i <= 2; i += .01) { var e = this._ypos(i); Math.abs(i) >= 1.9 && (e = this.controller.cache.height2), t.lineTo(this._xpos(i), e) } t.stroke() }, SiriWaveCurve.prototype.definition = [{ attenuation: -2, lineWidth: .4, opacity: .1 }, { attenuation: -6, lineWidth: .4, opacity: .2 }, { attenuation: 6, lineWidth: .4, opacity: .4 }, { attenuation: 2, lineWidth: .4, opacity: .6 }, { attenuation: 1, lineWidth: .6, opacity: 1 }], SiriWave.prototype._interpolate = function (t) { var increment = this[t + "InterpolationSpeed"]; Math.abs(this.cache.interpolation[t] - this[t]) <= increment ? this[t] = this.cache.interpolation[t] : this.cache.interpolation[t] > this[t] ? this[t] += increment : this[t] -= increment }, SiriWave.prototype._clear = function () { this.ctx.globalCompositeOperation = "destination-out", this.ctx.fillRect(0, 0, this.cache.width, this.cache.height), this.ctx.globalCompositeOperation = "source-over" }, SiriWave.prototype._draw = function () { for (var t = 0, i = this.curves.length; t < i; t++)this.curves[t].draw() }, SiriWave.prototype._startDrawCycle = function () { !1 !== this.run && (this._clear(), this._interpolate("amplitude"), this._interpolate("speed"), this._draw(), this.phase = (this.phase + Math.PI * this.speed) % (2 * Math.PI), window.requestAnimationFrame ? window.requestAnimationFrame(this._startDrawCycle.bind(this)) : setTimeout(this._startDrawCycle.bind(this), 20)) }, SiriWave.prototype.start = function () { this.phase = 0, this.run = !0, this._startDrawCycle() }, SiriWave.prototype.setAmplitude = function (t) { this.cache.interpolation.amplitude = Math.max(Math.min(t, 1), 0) }, window.SiriWave = SiriWave;
 
 
-/*
-//Forme d'onde Osci
+//-- Siri Wave --//
+var SW = new SiriWave({
+    style: 'default',
+    speed: 0.1,
+    amplitude: 1,
+    //color: '#FFF',
+    speedInterpolationSpeed: 1,
+    container: document.getElementById('siriC'),
+    autostart: true,
+});
+
 source.connect(analyser);
 analyser.connect(contextAudio.destination);
+analyser.fftSize = 2048;
 
-analyser.fftSize = 32; //256 2048
 var bufferLength = analyser.frequencyBinCount;
-console.log(bufferLength); // CONSOLE LOG
-var dataArray = new Uint8Array(bufferLength);
+var array = new Uint8Array(analyser.frequencyBinCount);
 
-ctxAudio.clearRect (0, 0, WIDTH, HEIGHT);
-
-function draw () {
-
-    requestAnimationFrame(draw); //drawVisual = 
-
-    analyser.getByteTimeDomainData(dataArray);
-
-    ctxAudio.fillStyle = 'rgb(200, 200, 200)';
-    ctxAudio.fillRect(0, 0, WIDTH, HEIGHT); //clearRect
-
-    ctxAudio.lineWidth = 2;
-    ctxAudio.strokeStyle = 'rgb (0, 0, 0)';
-
-    ctxAudio.beginPath();
-
-    var segWidth = (WIDTH * 1.0 / bufferLength);
-    var x = 0;
-
-    for (var i = 0; i < bufferLength; i++) {
-
-        var v = dataArray[i] / 128.0;
-        var y = v * HEIGHT/2;
-
-        if (i === 0) {
-            ctxAudio.moveTo(x, y);
-        }
-        else {
-            ctxAudio.lineTo(x, y);
-        }
-        x += segWidth;
+function getAverageVolume(data) {
+    var values = 0;
+    var length = data.length;
+    for (var i = 0; i < data.length; i++) {
+        values += data[i];
     }
+    return values / data.length;
+}
 
-    ctxAudio.lineTo (ctxAudio.width, ctxAudio.height/2);
-    ctxAudio.stroke();
-
-};
-draw ();
-*/
-
-import './SiriWave';
-
-
-var siriWave = new SiriWave({
-	container: document.getElementById('siri-container'),
-	width: 640,
-	height: 200,
-	/*
-	speed: 0.2,
-	color: '#000',
-	frequency: 2
-	*/
-});
+function Swave() {
+    requestAnimationFrame(Swave);
+    analyser.getByteFrequencyData(array);
+    var average = getAverageVolume(array);
+    SW.setAmplitude(average / 140);
+}
+Swave();

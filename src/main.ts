@@ -1,15 +1,10 @@
 import * as $ from "jquery";
 import "../node_modules/normalize.css/normalize.css";
 import "amplitudejs";
-//import { registerSimpleAudioPlayer } from "./simple-audio-player.js";
-//import "./simple-audio-player.css";
 import "./main.scss";
 import "./player.js";
 import * as amplitude from "amplitudejs";
 import { router } from "./router";
-import "./siriwave.js";
-
-
 
 const root = $("#root");
 let onPage1 = true;
@@ -70,32 +65,6 @@ function section(index: number) {
     })
 
 }
-/*
-amplitude.init({
-    "songs": [
-        {
-            "name": "Song Name 1",
-            "artist": "Artist Name",
-            "album": "Album Name",
-            "url": "/song/url.mp3",
-            "cover_art_url": "/cover/art/url.jpg"
-        },
-        {
-            "name": "Song Name 2",
-            "artist": "Artist Name",
-            "album": "Album Name",
-            "url": "/song/url.mp3",
-            "cover_art_url": "/cover/art/url.jpg"
-        },
-        {
-            "name": "Song Name 3",
-            "artist": "Artist Name",
-            "album": "Album Name",
-            "url": "/song/url.mp3",
-            "cover_art_url": "/cover/art/url.jpg"
-        }
-    ]
-});*/
 
 router
     .on("/", () => {
