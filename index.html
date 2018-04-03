@@ -6,7 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="icon" type="image/png" href="/record.png" >
     <title>Jerome Renard</title>
-<link href="vendor.css?c4e7cb728f7c2507c9a1" rel="stylesheet"><link href="app.css?c4e7cb728f7c2507c9a1" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+<link href="vendor.css?25437f5dda0ee2e9d7d9" rel="stylesheet"><link href="app.css?25437f5dda0ee2e9d7d9" rel="stylesheet"></head>
 <body>
 <div id="root">
     <div id="page-1">
@@ -180,6 +181,7 @@
             <h3>I've worked with</h3>
             <ul>
                 <li>Simon Phillips</li>
+                <li>Robin Dimaggio</li>
                 <li>John Metcalfe</li>
                 <li>Lara Fabian</li>
                 <li>Frederic Francois</li>
@@ -213,94 +215,56 @@
         </div>
 
         <div class="on-mobile row-right">
-            <!-- WORKING AUDIO PLAYER 
-                <canvas id="progress" width="400px" height="400px"></canvas>
+                
+            <audio id="myAudioPlayer"></audio> <!--ontimeupdate="update(this)"-->
 
-                <audio id="audio">
-                    <source src="4108df1bf6427e080ed05f3d9a283614.mp3">
-                </audio>
+            <div class="audioPlayer">
+                <div class="playerContainer">
+                
+                   <div id="siriC">
+                    <div id="playerOverlay" class="playerOverlay">
+                        <ul id="playlist" >
+                            <li>
+                                <a src="4108df1bf6427e080ed05f3d9a283614.mp3">Audio 01</a>
+                            </li>
+                            <li>
+                                 <a src="b659d18e02f61d5316775f86c23c22fc.mp3">Tanae</a>
+                            </li>
+                            <li>
+                                <a src="f26ab439f1980447d9a1d2dcf7d7bad7.mp3">Havoc</a>
+                            </li>
+                            <li>
+                                <a src="9459c157e0306ada701af406c5b10370.wav">Wonder Why</a>
+                            </li>
+                        </ul>
+                    </div>
+                   </div>
+                                  
+                    <div class="progressBar">
+                        <div id="Bar" class="bar"></div>
+                    </div>
 
-                <br>
-                <span id="current-time"></span> /
-                <span id="duration"></span>
-                <br>
-                <button id="audioControl" >Play</button>
-            -->
-
-            <!-- Player Visu En cours de development
-            <div id="player">
-                <div id="main">
-                    <div>
-                        <div class="playback-controls">
-                            <h2 id="Title">Title</h2>
-                            <h3 id="Artist">Artist</h3>
-                            <div class="time-holder">
-                                <div class="slider">
-                                    <div class="fill"></div>
-                                </div>
-                            </div>
-                            <img class="player-button" src="59f0e1cf5a4c17b6c814a02f74a5dd4a.svg">
-                            <div id="player-controls" class="">
-                                <img class="player-button" src="20e0d50082dbb32c84cd32a0c3fa3609.svg">
-                                <img class="player-button" src="64bfca19bd143f27c7bf2fbd791f65f3.svg">
-                                <img class="player-button" src="c13776713d75db125872b36587ac66f8.svg" >
-                                <img class="player-button" src="33504a464906d1d347120b866d737b01.svg">
-                            </div>
-                        </div>
-                        <audio id="playbar" controls="" tabindex="0">
-                            <source src="4108df1bf6427e080ed05f3d9a283614.mp3">
-                        </audio>
+                    <div class="trackInfo">
+                        <span id="progressTime" class="progressTime">00:00</span>
+                        <span id="trackName" class="title"></span>
+                        <span id="totalTime" class="duration">00:00</span>
                     </div>
                 </div>
-                <ol id="playlist">
-                    <li class="active">
-                        <source src="4108df1bf6427e080ed05f3d9a283614.mp3">
-                        <span>Test 1</span>
-                    </li>
-                    <li>
-                        <source src="4108df1bf6427e080ed05f3d9a283614.mp3">
-                        <span>Test 2</span>
-                    </li>
-
-                </ol>
-            </div>
-            -->
-
-
-
-            <!--<audio id="audioPlayer" > <!--  <audio id="audioPlayer" ontimeupdate="update(this)">
-                    <source src="4108df1bf6427e080ed05f3d9a283614.mp3">
-            </audio>
                 
-            <button id="playButton" class="control">Play</button>
-            <button id="stopButton" class="control">Stop</button>
-
-            <div>
-                <div id="progressBarControl">
-                    <div id="progressBar" width="250px" height="20px" color="blue" onclick="clickProgress('audioPlayer', this, event)">Pas de lecture</div>
+                <div class="controls">
+                    <i id="plltButton" class="material-icons md-18">queue_music</i>
+                    <i id="prevButton" class="material-icons md-18">skip_previous</i>
+                    <i id="playButton" class="material-icons md-18">play_arrow</i>
+                    <i id="nextButton" class="material-icons md-18">skip_next</i>
+                    <i id="stopButton" class="material-icons md-18">stop</i>
                 </div>
-                <span id="progressTime">00:00</span>
-                <span id="totalTime">00:00</span>
+
+        
             </div>
 
-
-            <canvas id="canvas_player" width="500" height="100" style="border:1px solid #000000;"></canvas>-->
-
-
-            <!--<audio controls id="play">
-                <source src="4108df1bf6427e080ed05f3d9a283614.mp3">
-            </audio>
-
-           <canvas id="player" width="500" height="500" style="border:1px solid #000000;"></canvas>-->
-
-            <!--<canvas class="visualizer" id="myCanvas";width="640" height="300" style="border:1px solid #000000;"> </canvas>-->
-
-            <!--<iframe width="80%" height="350" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/310650781%3Fsecret_token%3Ds-T9aRv&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true"></iframe>-->
-
-            <iframe src="https://audiomack.com/embed/playlist/djtgut/wavy" scrolling="no" width="100%" height="400" scrollbars="no" frameborder="0"></iframe>
         </div>
     </div>
-</div></div>                
+</div>      </div>                
             <div class="section"><div class="section-title hide-on-mobile">
     <h1>Contact</h1>
 </div>
@@ -459,5 +423,5 @@
         </div>
     </div>
 </div>  
-<script type="text/javascript" src="vendor-bundle.min.js?c4e7cb728f7c2507c9a1"></script><script type="text/javascript" src="app-bundle.min.js?c4e7cb728f7c2507c9a1"></script></body>
+<script type="text/javascript" src="vendor-bundle.min.js?25437f5dda0ee2e9d7d9"></script><script type="text/javascript" src="app-bundle.min.js?25437f5dda0ee2e9d7d9"></script></body>
 </html>
