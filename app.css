@@ -795,3 +795,16 @@ body {
             -ms-flex: 1 10%;
                 flex: 1 10%;
         text-align: left; }
+
+#rudr_instafeed {
+  list-style: none; }
+
+#rudr_instafeed li {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 10px; }
+
+#rudr_instafeed li img {
+  max-width: 100%;
+  max-height: 100%; }
