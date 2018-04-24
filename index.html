@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="/record.png" >
     <title>Jerome Renard</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-<link href="vendor.css?1fcaf9a7ebca939b032c" rel="stylesheet"><link href="app.css?1fcaf9a7ebca939b032c" rel="stylesheet"></head>
+<link href="vendor.css?93c8048fdc9427d8fef8" rel="stylesheet"><link href="app.css?93c8048fdc9427d8fef8" rel="stylesheet"></head>
 <body>
 <div id="root">
     <div id="page-1">
@@ -167,9 +167,25 @@
                 class="lightwidget-widget" style="width: 85%; border: 0; overflow: hidden;"></iframe>
             -->
 
-            <!-- Instafeed <div id="instafeed"></div>-->
+            <!-- Instafeed -->
+            <div id="instafeed"></div>
+            <script src="function e(e,t){var n,r;this.options={target:"instafeed",get:"popular",resolution:"thumbnail",sortBy:"none",links:!0,mock:!1,useHttp:!1};if(typeof e=="object")for(n in e)r=e[n],this.options[n]=r;this.context=t!=null?t:this,this.unique=this._genKey()}"></script>
+            <script type="text/javascript">
+                var userFeed = new Instafeed({
+                  get: 'user',
+                  //userId: '623597756',
+                  //clientId: '9be11d9064b4484997d41f7d28405e40',
+                  accessToken: '1030114991.1677ed0.e80794145d9e41bab9bf5989c0095077',
+                  resolution: 'standard_resolution',
+                  template: '<a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
+                  sortBy: 'most-recent',
+                  limit: 8,
+                  links: false
+                });
+                userFeed.run();
+              </script>
             
-            <ul id="rudr_instafeed"></ul>
+            <!-- JQUERY <ul id="rudr_instafeed"></ul> -->
 
 
         </div>
@@ -426,5 +442,5 @@
         </div>
     </div>
 </div>  
-<script type="text/javascript" src="vendor-bundle.min.js?1fcaf9a7ebca939b032c"></script><script type="text/javascript" src="app-bundle.min.js?1fcaf9a7ebca939b032c"></script></body>
+<script type="text/javascript" src="vendor-bundle.min.js?93c8048fdc9427d8fef8"></script><script type="text/javascript" src="app-bundle.min.js?93c8048fdc9427d8fef8"></script></body>
 </html>
