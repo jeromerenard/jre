@@ -1,1 +1,1 @@
-$ echo "www.jeromerenard.io" > source/CNAME
+$ echo "www.jeromerenard.io" > src/CNAME
