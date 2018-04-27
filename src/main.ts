@@ -5,6 +5,7 @@ import "./main.scss";
 import "./player.js";
 import * as amplitude from "amplitudejs";
 import { router } from "./router";
+//import "instafeed";
 
 const root = $("#root");
 let onPage1 = true;
@@ -95,8 +96,5 @@ router
         section(5);
     })*/
     .listen();
-
-
-
 
     

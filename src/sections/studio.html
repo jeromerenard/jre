@@ -29,7 +29,7 @@
             <h3>Gear & Software</h3>
             <ul>
                 <li>ProTools HDx</li>
-                <li>ProTools 12 HD</li>
+                <li>ProTools Ultimate</li>
                 <li>Focusrite Rednet</li>
                 <lI>Burl ADC</lI>
                 <li>ATC SCM45a</li>
@@ -45,18 +45,37 @@
                 <li>Sonnox</li>
                 <li>Slate Digital</li>
                 <li>FabFilter</li>
-                <li>UAD Cards & Plugins</li> <!--octo-->
+                <li>UAD Core & Plugins</li>
             </ul>
         </div>
 
         <div class="row-right">
-            <br>
-            <br>
-            <br>
             <!-- LightWidget WIDGET -->
+            <!-- 
             <script src="//lightwidget.com/widgets/lightwidget.js"></script>
             <iframe src="//lightwidget.com/widgets/1a2d2d124fb159f29bc100565e4d6e5e.html" scrolling="no" allowtransparency="true"
                 class="lightwidget-widget" style="width: 85%; border: 0; overflow: hidden;"></iframe>
+            -->
+
+            <!-- Instafeed -->
+            <div id="instafeed"></div>
+            <script src="https://matthewelsom.com/assets/js/libs/instafeed.min.js"></script>
+            <script type="text/javascript">
+              var userFeed = new Instafeed({
+                get: 'user',
+                userId: '1030114991',
+                clientId: '9be11d9064b4484997d41f7d28405e40',
+                accessToken: '1030114991.1677ed0.e80794145d9e41bab9bf5989c0095077',
+                resolution: 'standard_resolution',
+                template: '<a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}" /></a>',
+                sortBy: 'most-recent',
+                limit: 8,
+                links: false
+              });
+              userFeed.run();
+            </script>
+
+            <!--<a href="https://www.instagram.com/jerome.mix/" target="_blank"><img src="../assets/instagram.svg"></a> SI pas afficher Galerie => Affichier lien vers instagram-->
 
         </div>
     </div>

@@ -151,3 +151,27 @@ function Swave() {
     SW.setAmplitude(average / 140);
 }
 Swave();
+
+
+
+
+/*
+var token = '1030114991.1677ed0.e80794145d9e41bab9bf5989c0095077',
+    //userid = 9be11d9064b4484997d41f7d28405e40,
+    num_photos = 10;
+ 
+$.ajax({
+    url: 'https://api.instagram.com/v1/users/self/media/recent',
+    dataType: 'jsonp',
+    type: 'GET',
+    data: {access_token: token, count: num_photos},
+    success: function(data){
+        console.log(data);
+        for( x in data.data ){
+            $('ul').append('<li><img src="'+data.data[x].images.low_resolution.url+'"></li>');
+        }
+    },
+    error: function(data){
+        console.log(data);
+    }
+});*/
