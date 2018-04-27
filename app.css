@@ -551,8 +551,9 @@ body {
       height: 70%; }
       @media (max-width: 959px) {
         .section-studio .row-right #instafeed {
-          -ms-flex-pack: distribute;
-              justify-content: space-around; } }
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between; } }
       .section-studio .row-right #instafeed a {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -564,6 +565,8 @@ body {
         position: relative;
         width: 20%;
         background: white; }
+        .section-studio .row-right #instafeed a :hover {
+          opacity: 0.8; }
         @media only screen and (min-width: 1920px) {
           .section-studio .row-right #instafeed a {
             width: 25%; } }
