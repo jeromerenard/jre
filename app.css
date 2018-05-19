@@ -752,18 +752,18 @@ body {
         pointer-events: auto; }
       .audioPlayer #siriC .playerOverlay #playlist {
         list-style: none; }
-        .audioPlayer #siriC .playerOverlay #playlist li a {
+        .audioPlayer #siriC .playerOverlay #playlist li {
           color: white;
           opacity: 0.85;
           display: block;
           cursor: pointer;
           padding: 2px 0; }
-          .audioPlayer #siriC .playerOverlay #playlist li a.active {
+          .audioPlayer #siriC .playerOverlay #playlist li.active {
             opacity: 1;
             text-decoration: none; }
-        .audioPlayer #siriC .playerOverlay #playlist li a:hover {
-          text-decoration: none;
-          color: lightblue; }
+          .audioPlayer #siriC .playerOverlay #playlist li:hover {
+            text-decoration: none;
+            color: lightblue; }
   .audioPlayer .controls {
     display: -webkit-box;
     display: -ms-flexbox;
