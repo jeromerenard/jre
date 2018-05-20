@@ -22,13 +22,19 @@ a {
     text-decoration: inherit;
 }
 
-@mixin mobile {
+@mixin phone {
+    @media (max-width: $xs - 1) {
+        @content;
+    }
+}
+
+@mixin tablet {
     @media (max-width: $sm - 1) {
         @content;
     }
 }
 
-@mixin not-mobile {
+@mixin not-tablet {
     @media (min-width: $sm) {
         @content;
     }
@@ -55,7 +61,7 @@ body {
     display: flex;
     width: 200%;
     height: 100%;
-    @include mobile {
+    @include tablet {
         width: 100%;
         height: 200%;
         flex-direction: column;
@@ -68,7 +74,7 @@ body {
 
 .view-page-2 {
     transform: translateX(-50%);
-    @include mobile {
+    @include tablet {
         transform: translateY(-50%);
     }
 }
@@ -84,7 +90,7 @@ body {
     flex-direction: row;
     box-sizing: border-box;
     padding-right: $side-panel-size;
-    @include mobile {
+    @include tablet {
         padding-right: 0;
         padding-bottom: $side-panel-size;
     }
@@ -98,7 +104,7 @@ body {
 #page-2 {
     background: $light;
     color: $dark-text;
-    @include mobile {
+    @include tablet {
         background-color: #f2f2f2;
     }
 }
@@ -112,7 +118,7 @@ body {
     height: $bar-height * 5;
     z-index: 2;
     cursor: pointer;
-    @include not-mobile() {
+    @include not-tablet() {
         display: none;
     }
     &.active {
@@ -159,7 +165,7 @@ body {
     height: $side-panel-size;
     letter-spacing: 0.08em;
     transform-origin: center;
-    @include not-mobile {
+    @include not-tablet {
         //transform: rotate(90deg) translateY(-50vw) translateX(calc(-50vh + #{$side-panel-size/2}));    
         width: 100vh;
         transform: rotate(90deg) translateX(calc(-50vh + #{$side-panel-size/2})) translateY(calc(-100vw + 50vh + #{$side-panel-size/2}));
@@ -178,14 +184,32 @@ body {
     }
 }
 
+@keyframes side-panel-pulse {
+    0% {        
+        box-shadow: 0 0 0 0 white;
+    }
+/*    70% {    
+        box-shadow: 0 0 10px 0px rgba(255, 255, 255, .45);   
+        
+    }*/
+    100% {        
+        //box-shadow: 0 0 500px 5px rgba(255, 255, 255, .45),
+       // box-shadow: 0px 5px 0px 0px rgba(255, 255, 255, 1);   
+        
+    }
+}
+
 #side-panel-1 {
     background: $light;
     color: $dark-text;
+    animation: side-panel-pulse 1s infinite alternate;
+    //box-shadow: inset 0 0 5px 5px rgba(245, 9, 245, 0.45);
+    
 }
 
 #side-panel-2 {
     background: $dark;
-    color: $light-text;
+    color: $light-text;    
 }
 
 #top-menu {
@@ -199,7 +223,7 @@ body {
     margin: 24px $side-panel-size + 32px auto auto;
     z-index: 1;
 
-    @include mobile {
+    @include tablet {
         margin-right: 0;
         text-align: center;
         pointer-events: none;
@@ -224,7 +248,7 @@ body {
             font-size: 19px;
         }
     }
-    @include not-mobile {
+    @include not-tablet {
         a:not(.active) {
             color: rgba(0, 0, 0, 0.45);            //lightgray
         }
@@ -272,7 +296,7 @@ body {
     img:hover {
         transform: scale(1.2);
     }
-    @include mobile {
+    @include tablet {
         display: none;
     }
 }
@@ -334,7 +358,7 @@ body {
     margin-left: 110px;
     margin-top: 50px;
     position: relative;
-    @include mobile {
+    @include tablet {
         width: 100%;
         margin-left: 0;
         margin-top: 15px;
@@ -352,7 +376,7 @@ body {
     transition: opacity .5s $material-curve;
     opacity: 0;
     box-sizing: border-box; //background-color: #f9f9f9;
-    @include mobile {
+    @include tablet {
         padding: 10px;
         background-color: #f2f2f2;
     }
@@ -366,7 +390,7 @@ body {
         height: calc(50% - 192px);
         flex-shrink: 0;
         min-height: 40px;
-        @include mobile {
+        @include tablet {
             flex: none;
             height: auto;
         }
@@ -501,24 +525,28 @@ body {
             display: flex;
             flex-wrap: wrap;
             width: 100%;
-            height: 70%;
-            @include mobile {
-                justify-content: space-between;
-            }
+            justify-content: center;
+
+            //height: 70%;            
             
             a {
             display: flex;
-            margin: 4px;
+            padding: 4px;
+            box-sizing: border-box;
             align-items: center;
             position: relative;
-            width: 20%;
+            width: 25%;
             background: white;
             :hover {
                 opacity: 0.8;
             }
-                @media only screen and (min-width: $lg) {
+
+            @include phone {
+                width: 50%;
+            }
+/*                 @media only screen and (min-width: $lg) {
                     width: 25%;
-                }
+                } */
                 img {
                     display: flex;
                     max-width: 100%;
@@ -526,12 +554,13 @@ body {
                     border-radius: 4px;
                 }
             }
+
         }
-        a { 
+/*         a { 
             @include not-mobile {
                 display: none;
             }
-        }
+        } */
 
     }
 }
@@ -542,7 +571,7 @@ body {
     .row-left {
         flex: 1;
         margin: 20px;
-        @include mobile {
+        @include tablet {
             //order: 2;
         }
         ul {
@@ -561,7 +590,7 @@ body {
         display: flex;
         align-items: center;
         flex: 1;
-        @include mobile {
+        @include tablet {
             //order: 1;
         }
     }
@@ -575,14 +604,14 @@ body {
         flex: 1; //margin: 20px;
         margin-top: 45px;
         margin-left: 20px; //margin-right: 20px;
-        @include mobile {
+        @include tablet {
             p,
             h2 {
                 text-align: center !important;
             }
         }
         a:hover {
-            color: blue;
+            color: #425996;
         }
     }
     .row-right {
@@ -596,7 +625,7 @@ body {
             text-align: center;
         }
         a:hover {
-            color: blue;
+            color: #425996;
         }
     }
     .row-contact-link {
@@ -648,26 +677,26 @@ body {
 }
 
 .on-mobile {
-    @include mobile {
+    @include tablet {
         margin-bottom: 0px !important;
         margin-top: 0px !important;
     }
 }
 
 .section-mobile {
-    @include mobile {
+    @include tablet {
         flex-direction: column;
     }
 }
 
 .hide-not-mobile {
-    @include not-mobile {
+    @include not-tablet {
         display: none;
     }
 }
 
 .hide-on-mobile {
-    @include mobile {
+    @include tablet {
         display: none;
     }
 }
@@ -715,7 +744,7 @@ body {
     
             #playlist {
                 list-style: none;
-                li a{
+                li {
                     color:white;
                     opacity: 0.85;
                     display: block;
@@ -726,10 +755,11 @@ body {
                         opacity: 1;
                         text-decoration: none;
                     }
-                }
-                li a:hover {
-                    text-decoration: none;
-                    color: lightblue;
+
+                    &:hover {
+                        text-decoration: none;
+                        color: lightblue;
+                    }
                 }
             }
         }
