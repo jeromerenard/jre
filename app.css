@@ -162,9 +162,23 @@ body {
         -ms-user-select: none;
             user-select: none; }
 
+@-webkit-keyframes side-panel-pulse {
+  0% {
+    box-shadow: 0 0; }
+  100% {
+    box-shadow: 0 0 500px 5px rgba(255, 255, 255, 0.45); } }
+
+@keyframes side-panel-pulse {
+  0% {
+    box-shadow: 0 0; }
+  100% {
+    box-shadow: 0 0 500px 5px rgba(255, 255, 255, 0.45); } }
+
 #side-panel-1 {
   background: #fefefe;
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-animation: side-panel-pulse 1.5s infinite alternate;
+          animation: side-panel-pulse 1.5s infinite alternate; }
 
 #side-panel-2 {
   background: black;
