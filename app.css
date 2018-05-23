@@ -162,29 +162,68 @@ body {
         -ms-user-select: none;
             user-select: none; }
 
+/* .shine {
+    width: 5px;
+    background: linear-gradient(180deg, red, blue);
+}
+ */
+@-webkit-keyframes slide {
+  0% {
+    box-shadow: -1050px 4px 1px 1px rgba(255, 0, 0, 0.45); }
+  100% {
+    box-shadow: 1050px 4px 1px 1px rgba(255, 0, 0, 0.45); } }
+@keyframes slide {
+  0% {
+    box-shadow: -1050px 4px 1px 1px rgba(255, 0, 0, 0.45); }
+  100% {
+    box-shadow: 1050px 4px 1px 1px rgba(255, 0, 0, 0.45); } }
+
 @-webkit-keyframes side-panel-pulse {
   0% {
-    box-shadow: 0 0 0 0 white; }
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.25); }
   /*    70% {    
         box-shadow: 0 0 10px 0px rgba(255, 255, 255, .45);   
         
     }*/
-  100% { } }
+  100% {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45); } }
 
 @keyframes side-panel-pulse {
   0% {
-    box-shadow: 0 0 0 0 white; }
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.25); }
   /*    70% {    
         box-shadow: 0 0 10px 0px rgba(255, 255, 255, .45);   
         
     }*/
-  100% { } }
+  100% {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45); } }
+
+@-webkit-keyframes cubemove {
+  0% {
+    left: 0px; }
+  100% {
+    left: calc(100vw - 100px); } }
+
+@keyframes cubemove {
+  0% {
+    left: 0px; }
+  100% {
+    left: calc(100vw - 100px); } }
+
+#shineslide {
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  position: relative;
+  /*     top: 0px;
+    left: 0px; */
+  -webkit-animation: cubemove 2s infinite alternate;
+          animation: cubemove 2s infinite alternate;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45); }
 
 #side-panel-1 {
   background: #fefefe;
-  color: rgba(0, 0, 0, 0.87);
-  -webkit-animation: side-panel-pulse 1s infinite alternate;
-          animation: side-panel-pulse 1s infinite alternate; }
+  color: rgba(0, 0, 0, 0.87); }
 
 #side-panel-2 {
   background: black;
@@ -560,12 +599,7 @@ body {
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center;
-    /*         a { 
-            @include not-mobile {
-                display: none;
-            }
-        } */ }
+            align-items: center; }
     .section-studio .row-right #instafeed {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -632,6 +666,9 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1; }
@@ -741,12 +778,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 4px; }
+  @media (max-width: 599px) {
+    .audioPlayer {
+      margin-bottom: 5px; } }
   .audioPlayer #siriC {
     position: relative;
     height: 210px;
