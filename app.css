@@ -180,23 +180,23 @@ body {
 
 @-webkit-keyframes side-panel-pulse {
   0% {
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.25); }
+    box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0); }
   /*    70% {    
         box-shadow: 0 0 10px 0px rgba(255, 255, 255, .45);   
         
     }*/
   100% {
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45); } }
+    box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0.35); } }
 
 @keyframes side-panel-pulse {
   0% {
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.25); }
+    box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0); }
   /*    70% {    
         box-shadow: 0 0 10px 0px rgba(255, 255, 255, .45);   
         
     }*/
   100% {
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45); } }
+    box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0.35); } }
 
 @-webkit-keyframes cubemove {
   0% {
@@ -216,18 +216,24 @@ body {
   background-color: white;
   position: relative;
   /*     top: 0px;
-    left: 0px; */
-  -webkit-animation: cubemove 2s infinite alternate;
-          animation: cubemove 2s infinite alternate;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45); }
+    left: 0px; */ }
 
 #side-panel-1 {
   background: #fefefe;
-  color: rgba(0, 0, 0, 0.87); }
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-animation: side-panel-pulse 2s infinite alternate;
+          animation: side-panel-pulse 2s infinite alternate; }
 
 #side-panel-2 {
   background: black;
   color: rgba(255, 255, 255, 0.89); }
+  @media (max-width: 599px) {
+    #side-panel-2 {
+      height: 48px;
+      font-size: 18px;
+      font-weight: 400; }
+      #side-panel-2 a {
+        line-height: 48px; } }
 
 #top-menu {
   position: absolute;
