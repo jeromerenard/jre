@@ -167,17 +167,17 @@ body {
     background: linear-gradient(180deg, red, blue);
 }
  */
-@-webkit-keyframes slide {
-  0% {
-    box-shadow: -1050px 4px 1px 1px rgba(255, 0, 0, 0.45); }
-  100% {
-    box-shadow: 1050px 4px 1px 1px rgba(255, 0, 0, 0.45); } }
-@keyframes slide {
-  0% {
-    box-shadow: -1050px 4px 1px 1px rgba(255, 0, 0, 0.45); }
-  100% {
-    box-shadow: 1050px 4px 1px 1px rgba(255, 0, 0, 0.45); } }
-
+/*  @keyframes slide {
+     0% {
+         //top: Opx;
+         box-shadow:  -1050px 4px 1px 1px rgba(255,   0, 0, 0.45);
+     }
+     100% {
+         //top: 200px;
+         box-shadow:  1050px 4px 1px 1px rgba(255, 0, 0, .45);
+     }
+     
+ } */
 @-webkit-keyframes side-panel-pulse {
   0% {
     box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0); }
@@ -187,7 +187,6 @@ body {
     }*/
   100% {
     box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0.35); } }
-
 @keyframes side-panel-pulse {
   0% {
     box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0); }
@@ -198,26 +197,29 @@ body {
   100% {
     box-shadow: 0 0 80px 20px rgba(255, 255, 255, 0.35); } }
 
-@-webkit-keyframes cubemove {
-  0% {
-    left: 0px; }
-  100% {
-    left: calc(100vw - 100px); } }
+/* @keyframes cubemove {
+    0% {
 
-@keyframes cubemove {
-  0% {
-    left: 0px; }
-  100% {
-    left: calc(100vw - 100px); } }
+        left:0px;
+        
+    }
+    100% {
 
-#shineslide {
-  width: 100px;
-  height: 2px;
-  background-color: white;
-  position: relative;
-  /*     top: 0px;
-    left: 0px; */ }
+        left: calc(100vw - 100px);
+    }
 
+} */
+/* #shineslide {
+    width: 100px;
+    height: 2px;
+    background-color: white;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    //animation: cubemove 2s infinite alternate;
+    //box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.45);
+    //animation: side-panel-pulse 2s infinite alternate;
+} */
 #side-panel-1 {
   background: #fefefe;
   color: rgba(0, 0, 0, 0.87);
