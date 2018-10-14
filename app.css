@@ -797,18 +797,20 @@ body {
   border-radius: 4px; }
   @media (max-width: 599px) {
     .audioPlayer {
-      margin-bottom: 5px; } }
+      margin-bottom: 5px;
+      border-radius: 10%; } }
   .audioPlayer #siriC {
     position: relative;
     height: 210px;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d; }
+    @media (max-width: 599px) {
+      .audioPlayer #siriC {
+        height: 160px; } }
     .audioPlayer #siriC .playerOverlay {
       position: absolute;
       width: 50%;
       top: 50%;
-      -webkit-transform: translateY(-50%);
-              transform: translateY(-50%);
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
       left: -50%;
