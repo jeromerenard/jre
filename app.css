@@ -822,6 +822,10 @@ body {
       opacity: 0;
       pointer-events: none;
       transition: left 0.245s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.245s cubic-bezier(0.4, 0, 0.2, 1); }
+      @media (max-width: 599px) {
+        .audioPlayer #siriC .playerOverlay {
+          width: 90%;
+          top: 20%; } }
       .audioPlayer #siriC .playerOverlay.active {
         opacity: .7;
         left: 0;
